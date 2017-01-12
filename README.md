@@ -1,2 +1,2 @@
 # lpthw
-Learn Python The Hard Way
+Reviewing Learn Python The Hard Way while practicing Git
