@@ -1,0 +1,5 @@
+print "\n"
+print "My Favorite Atom Short Cuts"
+print "Command Pallete: # + Shift + P"
+print "Quit: # + Q"
+print "Minimize: # + M"
