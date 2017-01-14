@@ -1,4 +1,5 @@
 print "\n"
+print "Test Branch"
 print "\tMy Favorite Atom Shortcuts\n"
 print "Cmd pallete:\r\t\t# + Shift + P"
 print "Quit:\r\t\t# + Q"
