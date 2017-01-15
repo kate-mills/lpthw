@@ -1,20 +1,20 @@
-print "\n"
-print "\tMy Favorite Atom Shortcuts\n"
-print "Cmd pallete:\r\t\t# + Shift + P"
-print "Quit:\r\t\t# + Q"
-print "Minimize:\r\t\t# + M"
-print "Hide App:\r\t\t# + H"
+print """
+\tMy Favorite Atom Shortcuts\n
+Cmd pallete:# + Shift + P
+Quit:       # + Q
+Minimize:   # + M
+Hide App:   # + H
+"""
 
-
-
-print "\n\tTerminal Commands\n"
-print "apropos:\n\tfind what man page is appropriate"
-print "xargs:\texecute arguments"
-print "find:\tfind files"
-print "grep:\tfind things inside files"
-print "man:\tread a manual page"
-print "env:\tlook at your environment"
-print "export:\t export/set a new environment variable"
-print "cat: \tprint the whole file"
-print "less: \tpage through a file"
-print "hostname:\n "
+print"""
+\tTerminal Commands\n
+apropos:    find what man page is appropriate
+xargs:      execute arguments
+find:       find files
+grep:       find things inside files
+man:        read a manual page
+env:        look at your environment
+export:     export/set a new environment variable
+cat:        print the whole file
+less:       page through a file
+"""
