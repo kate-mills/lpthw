@@ -1,0 +1,18 @@
+Modes
+'r' when the file will only be read
+'w' for only writing
+'a' opens the file for appending
+'r+' opens the file for both reading and writing
+
+
+open:   f = open('t.txt', 'r')
+
+read:   f = open('t.txt', 'r')
+        f.read()
+
+write:  f = open('t.txt', 'w')
+        f.write('I feel like some hot chocolate')
+        f.close()
+
+readline: f = open('t.txt', 'r')
+          f.readline()
