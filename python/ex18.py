@@ -1,4 +1,5 @@
 def print_two(*args):
+    print "args: %r" % (args,)
     arg1, arg2, arg3 = args
     print "arg1: %r, arg2: %r, arg3: %r" % (arg1, arg2, arg3)
 
@@ -19,3 +20,10 @@ print_two("Kate", "Scott", "Mills")
 print_two_again("Kate", "Mills")
 print_one("First!")
 print_none()
+
+def print_all(*args):
+    print "args: %r" % (args,)
+    arg1, arg2, arg3 = args
+    print "arg1: %r, arg2: %r, arg3: %r" % (arg1, arg2, arg3)
+
+print_all("I", "love", "snippets")
