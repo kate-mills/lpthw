@@ -10,17 +10,14 @@ print list(aTuple)   # converts a tuple to a list
 
 lan_list.append('python')               # appends value to end of list
 
-
 lan_list.extend(another_lan_list)       # extends list by appending contents of another list
 print lan_list                          # ['javascript', 'python', 'html', 'css', 'python', 'c', 'c++', 'c#']
 
 py_count = lan_list.count('python')     # returns count of how many times 'python' occurs in list
 print 'py_count', py_count
 
-
 hold_index = lan_list.index('python')   # returns the lowest index in list that 'python' appears
 print 'hold_index: ', hold_index
-
 
 lan_list.insert(2, 'Python')            # inserts 'Python' at index 2
 
@@ -28,7 +25,6 @@ lan_list.insert(2, 'Python')            # inserts 'Python' at index 2
 print another_lan_list.pop(-1) # c      # Removes and returns last object
 print another_lan_list.pop(1) # c++
 print another_lan_list.pop(0) # c
-
 
 
 lan_list.remove('c#')                    # Removes 'c#' from list
@@ -42,7 +38,13 @@ lan_list.sort()                         # Sorts objects of list, use compare fun
 print lan_list
 
 
+ten_things = "Apples Oranges Crows Telephone Light Sugar"
 
+stuff = ten_things.split(' ')           # string to list
+new_stuff = ' '.join(stuff)             # list to string
+index_three_five = '#'.join(stuff[3:5]) # list to string
+
+print new_stuff, index_three_five, type(new_stuff)
 # list_of_nums = range(0, 11, 1) # start, stop, step
 
 # for i in list_of_nums:
