@@ -9,5 +9,15 @@ ex17:   from sys import argv
 ex20:   from sys import argv
 
 ex35:   from sys import exit
+
+ex40:   import mystuff
+
+
+ex41:   import random
+        from urllib import urlopen
+        import sys
+
+ex43    from sys import exit
+        from random import randint
 """
 print reminders
