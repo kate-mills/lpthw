@@ -1,5 +1,6 @@
 from nose.tools import *
 from ex47.game import Room
+from ex47.artists import Art
 
 def test_room():
     gold = Room("GoldRoom",
@@ -30,3 +31,33 @@ def test_map():
     assert_equal(start.go('west'), west)
     assert_equal(start.go('west').go('east'), start)
     assert_equal(start.go('down').go('up'), start)
+
+
+def test_room():
+    mark = Art("Annie on Horse",
+                "Portrait")
+    assert_equal(mark.title, "Annie on Horse")
+    assert_equal(mark.category, "Portrait")
+    assert_equal(mark.colors, {})
+
+def test_art_colors():
+    blue = Art("blue", "Test color blue.")
+    red = Art("red", "Test color red.")
+    white = Art("white", "Test color  white.")
+
+    blue.add_colors({'white': white, 'red': red})
+    assert_equal(blue.paint('white'), white)
+    assert_equal(blue.paint('red'), red)
+
+def test_map():
+    spring = Art("Spring", "Contains Spring White and Brown.")
+    white = Art("White", "Mix with Spring and Brown")
+    brown = Art("Brown", "Mix with Spring and White")
+
+    spring.add_colors({'white': white, 'brown': brown})
+    white.add_colors({'green': spring})
+    brown.add_colors({'hop': spring})
+
+    assert_equal(spring.paint('white'), white)
+    assert_equal(spring.paint('white').paint('green'), spring)
+    assert_equal(spring.paint('brown').paint('hop'), spring)
