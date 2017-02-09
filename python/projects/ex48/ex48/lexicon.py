@@ -6,6 +6,7 @@ lexicon = {
     'go': 'verb',
     'kill': 'verb',
     'eat': 'verb',
+    'run': 'verb',
 
     'the': 'stop',
     'in': 'stop',
@@ -25,14 +26,15 @@ def convert_number(s):
         return int(s)
 
     except ValueError:
-        return s
+        return s.upper()
 
 
 def scan(paragraph):
-    words = paragraph.split()
+    words = paragraph.lower().split()
     result = []
 
     for word in words:
+
         # if word is not in lexicon, add it.
         if not(word in lexicon):
             lexicon[word] = 'error'
@@ -42,8 +44,7 @@ def scan(paragraph):
         if (lexicon[word] != 'number' and lexicon[word] != 'error'):
             pair = (lexicon[word], word)
 
-        # word must be a number or error
-        else:
+        else: # word must be a number or error
             num_or_err = convert_number(word)
             pair = (lexicon[word], num_or_err )
 
