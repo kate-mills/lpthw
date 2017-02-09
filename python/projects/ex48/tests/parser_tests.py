@@ -1,7 +1,6 @@
 from nose.tools import *
 from ex48.parser import *
 
-
 def test_Sentence():
     x = [('noun', 'princess'), ('verb', 'run'), ('direction', 'north')]
     player = Sentence(x[0], x[1], x[2])

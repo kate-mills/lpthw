@@ -1,3 +1,4 @@
+import lexicon
 class ParserError(Exception):
     pass
 
@@ -56,7 +57,11 @@ def parse_object(word_list):
         raise ParserError("Expected a noun or direction")
 
 def parse_subject(word_list):
-    skip(word_list, 'stop')
+    print word_list[0][0]
+    check = word_list[0][0]
+    if (check == 'stop' or check == 'error'):
+        skip(word_list, check)
+
     next_word = peek(word_list)
 
     if next_word == 'noun':
@@ -68,11 +73,13 @@ def parse_subject(word_list):
 
 
 def parse_sentence(word_list):
-    subj = parse_subject(word_list)
-    verb = parse_verb(word_list)
-    obj = parse_object(word_list)
+    parsed_list = lexicon.scan(word_list)
+    subj = parse_subject(parsed_list)
+    verb = parse_verb(parsed_list)
+    obj = parse_object(parsed_list)
 
     return Sentence(subj, verb, obj)
 
-x = parse_sentence([('verb','run'), ('direction','north')])
+
+x = parse_sentence("Prine run north")
 print x.subject, x.verb, x.object
