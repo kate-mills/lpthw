@@ -7,18 +7,20 @@ lexicon = {
     'kill': 'verb',
     'eat': 'verb',
     'run': 'verb',
+    'die': 'verb',
 
     'the': 'stop',
     'in': 'stop',
+    'it': 'stop',
     'of': 'stop',
 
     'bear': 'noun',
     'princess': 'noun',
+    'player': 'noun',
 
     '1234': 'number',
     '3': 'number',
     '91234': 'number',
-    'error': 'die'
 
 }
 
