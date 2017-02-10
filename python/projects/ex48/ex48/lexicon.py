@@ -17,7 +17,8 @@ lexicon = {
 
     '1234': 'number',
     '3': 'number',
-    '91234': 'number'
+    '91234': 'number',
+    'error': 'die'
 
 }
 

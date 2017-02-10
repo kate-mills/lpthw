@@ -5,17 +5,24 @@ class ParserError(Exception):
 class Sentence(object):
 
     def __init__(self, subject, verb, obj):
-        # takes ('noun','princess') tuple and convert them
+        # remember we take ('noun','princess') tuples and convert them
         self.subject = subject[1]
         self.verb = verb[1]
         self.object = obj[1]
 
 def peek(word_list):
+    # does not remove from word_list just looks at next_word
     if word_list:
-        word = word_list[0]
-        return word[0]
+        current_word = word_list[0]
+        word_type = current_word[0]
+        if (word_type == 'error'):
+            print current_word[0]
+            return current_word[0]
+        else:
+            return current_word[0]
     else:
         return None
+
 
 
 def match(word_list, expecting):
@@ -28,6 +35,7 @@ def match(word_list, expecting):
             return None
     else:
         return None
+
 
 def skip(word_list, word_type):
     while peek(word_list) == word_type:
@@ -54,14 +62,10 @@ def parse_object(word_list):
     elif next_word == 'direction':
         return match(word_list, 'direction')
     else:
-        raise ParserError("Expected a noun or direction")
+        raise ParserError("Expected a noun or direction next.")
 
 def parse_subject(word_list):
-    print word_list[0][0]
-    check = word_list[0][0]
-    if (check == 'stop' or check == 'error'):
-        skip(word_list, check)
-
+    skip(word_list, 'stop')
     next_word = peek(word_list)
 
     if next_word == 'noun':
@@ -73,13 +77,14 @@ def parse_subject(word_list):
 
 
 def parse_sentence(word_list):
-    parsed_list = lexicon.scan(word_list)
-    subj = parse_subject(parsed_list)
-    verb = parse_verb(parsed_list)
-    obj = parse_object(parsed_list)
+    p = lexicon.scan(word_list)
+    subj = parse_subject(p)
+    verb = parse_verb(p)
+    obj = parse_object(p)
 
     return Sentence(subj, verb, obj)
 
 
-x = parse_sentence("Prine run north")
+x = parse_sentence("Princess run North")
+
 print x.subject, x.verb, x.object
