@@ -38,57 +38,53 @@ def skip(word_list, word_type):
 
 
 
+# searches through list of tuples for first error or noun
+def parse_subject(word_list):
 
-def parse_verb(word_list):
+    skip(word_list, 'stop') #
     next_word = peek(word_list)
-    list_length = len(word_list)
-    skip(word_list, 'stop')
-    print "46-Verb", next_word, list_length
 
-    if next_word == 'noun':
-        skip(word_list, 'noun')
-    elif next_word == 'verb':
+    if next_word == 'error': # If first word is an error I am overwriting it
+        word_list[0] = ('noun', 'player')
+        return match(word_list, 'noun')
+    elif (next_word == 'noun'): # If first word is a noun I found a match
+        return match(word_list, 'noun')
+    elif next_word == 'verb': # If first word is verb return player so verb is not poped off
+        return ('noun','player')
+    else:
+        raise ParserError("Expected a verb next.")
+
+# searches through word list for first error or verb or None
+def parse_verb(word_list):
+    skip(word_list, 'stop')
+    next_word = peek(word_list)
+
+    if next_word == 'verb': # if first word is 'verb' match it and pop it off
         return match(word_list, 'verb')
-    elif next_word == 'error':
-        print "53-Verb found error, peeking at next_word", next_word
+    elif next_word == 'error': # user made a mistake w the verb so I am overwriting it
         word_list[0] = ('verb', 'die')
         return match(word_list, 'verb')
+    elif next_word == 'noun' or next_word == 'direction': # user left out a verb and next word is object
+        return ('die', 'verb')
+    elif next_word == None:
+        return('verb', 'nothingness')
     else:
         raise ParserError("Expected a verb next.")
 
 
 def parse_object(word_list):
-    list_length = len(word_list)
     next_word = peek(word_list)
+    skip(word_list, 'stop')
 
-    print "Object next please:%r%r" %(next_word, list_length)
-
-    if len(word_list) == 0:
-        return ('object', 'error0')
-
+    if next_word == None:
+        return ('object', 'nothingness')
     elif not(next_word == 'noun' or next_word == 'direction'): # not True or True = False
         return match(word_list, next_word)
-    elif next_word == 'direction':
-        return match(word_list, 'direction')
+    elif next_word == 'direction' or next_word == 'noun':
+        return match(word_list, next_word)
     else:
         raise ParserError("Expected a noun or direction next.")
 
-def parse_subject(word_list):
-    list_length = len(word_list)
-    next_word = peek(word_list)
-
-    if list_length >= 4:
-        skip(word_list, 'stop') # I am ok with stop words being discarded this word being discarded totally
-    else:
-        if (next_word == 'noun'):
-            return match(word_list, 'noun') # If next word is a noun then I found a match
-        elif next_word == 'error': # If next word is an error then switch it to player
-            word_list[0] = ('noun', 'player')
-            return match(word_list, 'noun')
-        elif next_word == 'verb':
-            return ('noun','player')
-        else:
-            raise ParserError("Expected a verb next.")
 
 
 def parse_sentence(word_list):
@@ -99,7 +95,7 @@ def parse_sentence(word_list):
 
     return Sentence(subj, verb, obj)
 
-
-x = parse_sentence("Princess running norths")
+stuff = raw_input("> ")
+x = parse_sentence(stuff)
 
 print x.subject, x.verb, x.object
