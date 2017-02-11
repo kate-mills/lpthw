@@ -40,16 +40,16 @@ def skip(word_list, word_type):
 
 # searches through list of tuples for first error or noun
 def parse_subject(word_list):
-
     skip(word_list, 'stop') #
     next_word = peek(word_list)
-
+    if next_word == None:
+        return ('noun', 'Wake up!!')
     if next_word == 'error': # If first word is an error I am overwriting it
         word_list[0] = ('noun', 'player')
         return match(word_list, 'noun')
     elif (next_word == 'noun'): # If first word is a noun I found a match
         return match(word_list, 'noun')
-    elif next_word == 'verb': # If first word is verb return player so verb is not poped off
+    elif next_word == 'verb' or next_word == 'direction': # If first word is verb return player so verb is not poped off
         return ('noun','player')
     else:
         raise ParserError("Expected a verb next.")
@@ -59,15 +59,15 @@ def parse_verb(word_list):
     skip(word_list, 'stop')
     next_word = peek(word_list)
 
-    if next_word == 'verb': # if first word is 'verb' match it and pop it off
+    if next_word == None: # if word_list is empty
+        return('verb', 'die')
+    elif next_word == 'error': # error found
+        word_list[0] = ('verb', 'die') # overwrite error
+        return match(word_list, 'verb') # pop it off
+    elif next_word == 'noun' or next_word == 'direction': # noun or direction
+        return ('verb', 'die')  # return die
+    elif next_word == 'verb': # verb found
         return match(word_list, 'verb')
-    elif next_word == 'error': # user made a mistake w the verb so I am overwriting it
-        word_list[0] = ('verb', 'die')
-        return match(word_list, 'verb')
-    elif next_word == 'noun' or next_word == 'direction': # user left out a verb and next word is object
-        return ('die', 'verb')
-    elif next_word == None:
-        return('verb', 'nothingness')
     else:
         raise ParserError("Expected a verb next.")
 
