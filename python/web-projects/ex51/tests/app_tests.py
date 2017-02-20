@@ -2,6 +2,7 @@ from nose.tools import *
 from bin.app import app
 from tests.tools import assert_response
 
+
 def test_index():
     # check that we get a 404 on the / URL
     resp = app.request("/")
