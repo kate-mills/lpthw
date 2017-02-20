@@ -8,7 +8,7 @@ while True:
         break
 
     if name in birthdays:
-        print"%s's birthday is %s\n" %(name, birthdays[name])
+        print"%s's birthday is %s\n" % (name, birthdays[name])
     else:
         print('I do not have birthday information for ' + name)
         print('What is their birthday?')
