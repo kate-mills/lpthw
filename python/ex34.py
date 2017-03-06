@@ -11,6 +11,7 @@ ex20:   from sys import argv
 ex35:   from sys import exit
 
 ex40:   import mystuff
+            from os.path import exists
 
 
 ex41:   import random
