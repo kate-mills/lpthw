@@ -1,7 +1,10 @@
 class Parent(object):
+    def __init__(self, name):
+        self.name = none
 
     def override(self):
         print "PARENT override()"
+
 
 class Child(Parent):
 
