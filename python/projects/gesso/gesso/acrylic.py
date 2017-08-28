@@ -1,2 +1,2 @@
 def paint(color):
-    print color * 10
+  print color * 10
