@@ -12,17 +12,17 @@ session = web.session.Session(app, store, initializer={'count': 0})
 
 
 class count:
-    def GET(self):
-        session.count += 1
-        return str(session.count)
+  def GET(self):
+    session.count += 1
+    return str(session.count)
 
 
 class reset:
-    def GET(self):
-        session.kill()
-        session.count = 0
-        return ""
+  def GET(self):
+    session.kill()
+    session.count = 0
+    return ""
 
 
 if __name__ == "__main__":
-    app.run()
+  app.run()
