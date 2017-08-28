@@ -1,17 +1,16 @@
 i = 20
 
 if i < 20:
-    print "yes"
+  print "yes"
 elif i >= 20:
-    print "greater or equal"
+  print "greater or equal"
 else:
-    assert False, "Broken if # 1"
-
+  assert False, "Broken if # 1"
 
 
 if i < 20:
-    print "yes"
+  print "yes"
 elif i > 20:
-    print "no"
+  print "no"
 else:
-    assert False, "Broken if # 2."
+  assert False, "Broken if # 2."

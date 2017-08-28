@@ -2,7 +2,7 @@ from sys import argv
 # set script, filename equal to argv
 script, filename = argv
 
-#format the raw-data and set it equal to filename
+# format the raw-data and set it equal to filename
 print "We're going to erase %r." % filename
 print "If you don't want that, hit CTR-C (^C)."
 print "If you do want that, hit RETURN."

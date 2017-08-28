@@ -1,65 +1,65 @@
 # Animal is-a object
 class Animal(object):
-    pass
+  pass
 
 # Dog is-a Animal
 
 
 class Dog(Animal):
 
-    def __init__(self, name):
-        # Dog has-a name attribute
-        self.name = name
+  def __init__(self, name):
+    # Dog has-a name attribute
+    self.name = name
 
 # Cat is-a Animal
 
 
 class Cat(Animal):
 
-    def __init__(self, name):
-        # Cat has-a name attribute
-        self.name = name
+  def __init__(self, name):
+    # Cat has-a name attribute
+    self.name = name
 
 # Person is-a object
 
 
 class Person(object):
 
-    def __init__(self, name):
-        # each person has-a name attribute
-        self.name = name
+  def __init__(self, name):
+    # each person has-a name attribute
+    self.name = name
 
-        # each person has-a pet of some kind
-        self.pet = None
+    # each person has-a pet of some kind
+    self.pet = None
 
 # Employee is-a Person
 
 
 class Employee(Person):
 
-    def __init__(self, name, salary):
-        # each person has-a name attribute, has-a default pet attrubute set to None
-        super(Employee, self).__init__(name)  # runs Person __init__ method
-        # each employee has-a salary attribute
-        self.salary = salary
+  def __init__(self, name, salary):
+    # each person has-a name attribute, has-a default pet attrubute set to None
+    super(Employee, self).__init__(name)  # runs Person __init__ method
+    # each employee has-a salary attribute
+    self.salary = salary
 
 # Fish is-a object
 
 
 class Fish(object):
-    pass
+  pass
 
 # Salmon is-a Fish
 
 
 class Salmon(Fish):
-    pass
+  pass
 
 # Halibut is-a Fish
 
 
 class Halibut(Fish):
-    pass
+  pass
 
 
 # rover is-a Dog

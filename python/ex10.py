@@ -21,4 +21,4 @@ print fat_cat
 
 
 for i in xrange(1, 10, 2):
-    print(i)
+  print(i)

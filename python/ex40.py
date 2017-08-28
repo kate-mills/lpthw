@@ -3,7 +3,7 @@ import mystuff
 # dict
 mystuff_dict = {'apple': 'I AM APPLES', 'tangerine': 'Living Reflection'}
 print "dictionary example: "
-print "\t%s %s" % ( mystuff_dict['apple'], mystuff_dict['tangerine']), "\n"
+print "\t%s %s" % (mystuff_dict['apple'], mystuff_dict['tangerine']), "\n"
 
 
 # module
@@ -19,11 +19,11 @@ print "\t", thing.tangerine, thing.apple(), "\n"
 
 # class
 happy_bday = mystuff.Song(["Happy birthday to you",
-                "I don't want to get sued",
-                "So I'll stop right there"])
+                           "I don't want to get sued",
+                           "So I'll stop right there"])
 
 bulls_on_parade = mystuff.Song(["They rally around the family",
-                "With pockets full of shells"])
+                                "With pockets full of shells"])
 
 
 print "another class example: ", "\n"
