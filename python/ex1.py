@@ -1,4 +1,5 @@
 print """
+I am issue2
 \tMy Favorite Atom Shortcuts\n
 Cmd pallete:# + Shift + P
 Quit:       # + Q
