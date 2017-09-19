@@ -7,7 +7,7 @@ Hide App:   # + H
 """
 
 print"""
-\tTerminal Commands\n
+\tTerminal Commands.\n
 apropos:    find what man page is appropriate
 xargs:      execute arguments
 find:       find files
